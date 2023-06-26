@@ -113,24 +113,9 @@ body {
   background-color: #262c37;
 }
 
-html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: #f3e6e8;
-  background-image: -o-linear-gradient(135deg, #f3e6e8 0%, #d5d0e5 74%);
-  background-image: linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%);
-}
-
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-}
-
 .wrapper {
   min-height: 100%;
-  overflow: clip;
+  overflow: hidden;
 }
 
 .container {
@@ -161,63 +146,6 @@ html {
   top: 0;
 }
 
-.cursor {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  pointer-events: none;
-  z-index: 999;
-  background-image: url(../img/hum.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-/* Створюємо анімацію */
-@-webkit-keyframes hammerAnimation {
-  0% {
-    /* Початкова позиція курсора */
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  50% {
-    /* Проміжна позиція курсора */
-    -webkit-transform: rotate(30deg);
-            transform: rotate(30deg);
-  }
-  100% {
-    /* Кінцева позиція курсора */
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-}
-@keyframes hammerAnimation {
-  0% {
-    /* Початкова позиція курсора */
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  50% {
-    /* Проміжна позиція курсора */
-    -webkit-transform: rotate(30deg);
-            transform: rotate(30deg);
-  }
-  100% {
-    /* Кінцева позиція курсора */
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-}
-/* Застосовуємо анімацію після кліку */
-.cursor:active {
-  -webkit-animation: hammerAnimation 0.5s linear;
-          animation: hammerAnimation 0.5s linear;
-}
-
 .mole {
   background: url(../img/mole-2.png) bottom center no-repeat;
   background-size: 50%;
@@ -228,6 +156,77 @@ html {
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
+}
+
+.cursor {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 999;
+  background-image: url(../img/humm.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: none;
+}
+.cursor.animate {
+  -webkit-animation: hammer 0.2s linear;
+          animation: hammer 0.2s linear;
+}
+
+/* Створюємо анімацію */
+@-webkit-keyframes hammer {
+  0% {
+    /* Початкова позиція курсора */
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    /* Проміжна позиція курсора */
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  100% {
+    /* Кінцева позиція курсора */
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+@keyframes hammer {
+  0% {
+    /* Початкова позиція курсора */
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    /* Проміжна позиція курсора */
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  100% {
+    /* Кінцева позиція курсора */
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+.boom {
+  position: absolute;
+  width: 100px;
+  height: 77px;
+  z-index: 999;
+  background-image: url(../img/boom.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: none;
 }
 
 .start {
@@ -241,37 +240,50 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 5rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 0;
+  color: rgb(104, 94, 114);
 }
 
 .score {
-  color: rgb(104, 94, 114);
   margin-top: 0%;
 }
 
 .game {
-  width: 1000px;
-  height: 400px;
+  min-height: 460px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 20px;
+  padding: 0 30px 30px;
   border: #f5f5f5 solid 5px;
   border-radius: 10px;
   margin: 0 auto;
   background-image: url(../img/background.jpg);
+  cursor: none;
 }
 
-button {
+.start {
+  margin-bottom: 1rem;
+}
+.start button {
+  border-radius: 10px;
+  -webkit-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+  transition: 0.2s linear;
   background: rgba(190, 19, 19, 0.2);
-  border: red;
+  padding: 0 15px;
   font-size: 3rem;
-  cursor: pointer;
+  letter-spacing: 0.2rem;
+  cursor: none;
+}
+.start button:hover {
+  -webkit-box-shadow: 0 0 0 2px #f5f5f5, 0 0 0 4px rgba(190, 19, 19, 0.2);
+          box-shadow: 0 0 0 2px #f5f5f5, 0 0 0 4px rgba(190, 19, 19, 0.2);
 }
