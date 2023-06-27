@@ -56,13 +56,21 @@ body {
 		background-size: contain;
 		content: "";
 		width: 100%;
-		height: 60px;
+		height: 70px;
 		position: absolute;
 		z-index: 2;
 		bottom: -30px;
+		@media (max-width: 768px) {
+			width: 90%;
+			height: 60px;
+			left: 5%;
+		}
 	}
 	&.up .mole {
 		top: 0;
+	}
+	@media (max-width: 425px) {
+		flex: 1 0 33.3333%;
 	}
 }
 
@@ -74,6 +82,9 @@ body {
 	width: 100%;
 	height: 100%;
 	transition: all 0.4s ease;
+	@media (max-width: 768px) {
+		background-size: 40%;
+	}
 }
 // ============================================================================
 .cursor {
@@ -132,6 +143,10 @@ body {
 	justify-content: space-between;
 	font-size: 3rem;
 	margin-bottom: 1rem;
+	@media (max-width: 425px) {
+		font-size: 2rem;
+		margin-bottom: 1rem;
+	}
 }
 
 h1 {
@@ -140,21 +155,27 @@ h1 {
 	color: rgb(104, 94, 114);
 }
 
-.score {
-	margin-top: 0%;
-}
+// .score {
+// 	margin-top: 0%;
+// }
 
 .game {
 	// width: 1060px;
 	min-height: 460px;
 	display: flex;
 	flex-wrap: wrap;
-	padding: 0 30px 30px;
+	padding: 0 15px 30px;
 	border: #f5f5f5 solid 5px;
 	border-radius: 10px;
 	margin: 0 auto;
 	background-image: url(../img/background.jpg);
 	cursor: none;
+	@media (max-width: 768px) {
+		gap: 10px;
+	}
+	@media (max-width: 425px) {
+		padding: 15px 30px;
+	}
 }
 
 .start {
@@ -170,6 +191,9 @@ h1 {
 		cursor: none;
 		&:hover {
 			box-shadow: 0 0 0 2px #f5f5f5, 0 0 0 4px rgba(190, 19, 19, 0.2);
+		}
+		@media (max-width: 425px) {
+			font-size: 2rem;
 		}
 	}
 }

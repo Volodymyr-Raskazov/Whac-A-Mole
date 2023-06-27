@@ -9,68 +9,89 @@ let timeUp = false;
 let score = 0;
 
 const playSound = (soundFile, volume) => {
-	let sound = new Audio(soundFile);
+	const sound = new Audio(soundFile);
 	sound.volume = volume;
 	sound.play();
 }
 
-function randomTime(min, max) {
-	return Math.round(Math.random() * (max - min) + min);
-}
+const randomTime = (min, max) => Math.round(Math.random() * (max - min) + min);
 
-function randomHole(holes) {
-	const idx = Math.floor(Math.random() * holes.length);
-	const hole = holes[idx];
-	if (hole === lastHole) {
-		return randomHole(holes);
-	}
+const randomHole = (holes) => {
+	let idx;
+	let hole;
+	do {
+		idx = Math.floor(Math.random() * holes.length);
+		hole = holes[idx];
+	} while (hole === lastHole);
 	lastHole = hole;
 	return hole;
 }
 
-function peep() {
-	const time = randomTime(200, 1000);
-	// const time = randomTime(1000, 2000);
-	const hole = randomHole(holes);
-	hole.classList.add('up');
-	setTimeout(() => {
-		hole.classList.remove('up');
-		if (!timeUp) peep();
-	}, time);
+const peep = () => {
+	if (!timeUp) {
+		const time = randomTime(300, 900);
+		const hole = randomHole(holes);
+		hole.classList.add('up');
+		setTimeout(() => {
+			hole.classList.remove('up');
+			peep();
+		}, time);
+	}
 }
 
-function countdown() {
-	let t = 10;
-	startBtn.textContent = `${t}s left`;
-	let timerID = setInterval(() => {
-		t--;
-		startBtn.textContent = `${t}s left`;
-		if (t == 0) {
+const countdown = () => {
+	let time = 10;
+	startBtn.textContent = `${time}s left`;
+	const timerId = setInterval(() => {
+		time--;
+		startBtn.textContent = `${time}s left`;
+		if (time === 0) {
 			startBtn.textContent = `Start!`;
-			clearInterval(timerID);
+			clearInterval(timerId);
 		}
 	}, 1000);
 }
 
-function startGame() {
-	scoreBoard.textContent = 0;
-	timeUp = false;
-	score = 0;
+const startGame = () => {
+	resetScoreboard();
+	setTimeUpFlag();
+	setScoreToZero();
 	peep();
 	countdown();
+	setTimeoutForGameEnd();
+}
+
+const resetScoreboard = () => {
+	scoreBoard.textContent = 0;
+}
+const setTimeUpFlag = () => {
+	timeUp = false;
+}
+const setScoreToZero = () => {
+	score = 0;
+}
+const setTimeoutForGameEnd = () => {
 	setTimeout(() => {
-		timeUp = true
+		timeUp = true;
 	}, 10000);
 }
 
 function whack(e) {
 	if (!e.isTrusted) return;
+
+	// Update the score
 	score++;
 	scoreBoard.textContent = score;
+
+	// Play the sound
 	playSound('sound/boom.mp3', 0.2);
+
+	// Show the boom effect
 	boom.style.display = 'block';
 	boom.style.top = this.offsetParent.offsetTop + 'px';
 	boom.style.left = this.offsetParent.offsetLeft + 'px';
+
+	// Hide the boom effect after 100ms
 	setTimeout(() => {
 		boom.style.display = 'none';
 		this.parentNode.classList.remove('up');
