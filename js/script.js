@@ -7,7 +7,6 @@ const boom = document.querySelector('.boom');
 let lastHole;
 let timeUp = false;
 let score = 0;
-let gameTime = 20000;
 
 const playSound = (soundFile, volume) => {
 	const sound = new Audio(soundFile);
@@ -41,7 +40,7 @@ const peep = () => {
 }
 
 const countdown = () => {
-	let time = gameTime / 1000;
+	let time = 10;
 	startBtn.textContent = `${time}s left`;
 	const timerId = setInterval(() => {
 		time--;
@@ -74,7 +73,7 @@ const setScoreToZero = () => {
 const setTimeoutForGameEnd = () => {
 	setTimeout(() => {
 		timeUp = true;
-	}, gameTime);
+	}, 10000);
 }
 
 function whack(e) {
@@ -96,7 +95,7 @@ function whack(e) {
 	setTimeout(() => {
 		boom.style.display = 'none';
 		this.parentNode.classList.remove('up');
-	}, 400);
+	}, 100);
 }
 
 moles.forEach(mole => mole.addEventListener('click', whack));
