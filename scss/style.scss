@@ -74,7 +74,8 @@ body {
 		top: 0;
 	}
 	@media (max-width: 425px) {
-		flex: 1 0 45%;
+		flex: 1 0 33%;
+		height: 100px;
 	}
 }
 
