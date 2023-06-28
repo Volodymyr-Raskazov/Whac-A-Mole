@@ -47,6 +47,7 @@ body {
 
 // Main =======================================================================
 .hole {
+	height: 150px;
 	flex: 1 0 25%;
 	overflow: hidden;
 	position: relative;
@@ -56,34 +57,40 @@ body {
 		background-size: contain;
 		content: "";
 		width: 100%;
-		height: 70px;
+		height: 60px;
 		position: absolute;
 		z-index: 2;
-		bottom: -30px;
+		bottom: -25px;
 		@media (max-width: 768px) {
-			width: 90%;
-			height: 60px;
-			left: 5%;
+			width: 100%;
+			height: 70px;
+		}
+		@media (max-width: 425px) {
+			height: 50px;
+			bottom: -15;
 		}
 	}
 	&.up .mole {
 		top: 0;
 	}
 	@media (max-width: 425px) {
-		flex: 1 0 33.3333%;
+		flex: 1 0 45%;
 	}
 }
 
 .mole {
 	background: url(../img/mole-2.png) bottom center no-repeat;
-	background-size: 50%;
+	background-size: 55%;
 	position: absolute;
 	top: 100%;
 	width: 100%;
 	height: 100%;
 	transition: all 0.4s ease;
 	@media (max-width: 768px) {
-		background-size: 40%;
+		background-size: 60%;
+	}
+	@media (max-width: 425px) {
+		background-size: 70%;
 	}
 }
 // ============================================================================
@@ -174,7 +181,7 @@ h1 {
 		gap: 10px;
 	}
 	@media (max-width: 425px) {
-		padding: 15px 30px;
+		padding: 15px 0;
 	}
 }
 
