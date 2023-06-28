@@ -7,6 +7,7 @@ const boom = document.querySelector('.boom');
 let lastHole;
 let timeUp = false;
 let score = 0;
+let duration = 20000;
 
 const playSound = (soundFile, volume) => {
 	const sound = new Audio(soundFile);
@@ -40,7 +41,7 @@ const peep = () => {
 }
 
 const countdown = () => {
-	let time = 10;
+	let time = duration / 1000;
 	startBtn.textContent = `${time}s left`;
 	const timerId = setInterval(() => {
 		time--;
@@ -73,7 +74,7 @@ const setScoreToZero = () => {
 const setTimeoutForGameEnd = () => {
 	setTimeout(() => {
 		timeUp = true;
-	}, 10000);
+	}, duration);
 }
 
 function whack(e) {
