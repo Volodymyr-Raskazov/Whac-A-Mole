@@ -7,7 +7,7 @@ const boom = document.querySelector('.boom');
 let lastHole;
 let timeUp = false;
 let score = 0;
-let muted = true;
+let muted = false;
 let duration = 20000;
 
 const playSound = (soundFile, volume, muted) => {
@@ -35,7 +35,7 @@ const peep = () => {
 		const time = randomTime(300, 900);
 		const hole = randomHole(holes);
 		hole.classList.add('up');
-		playSound('sound/haha-1.mp3', 0.2, muted);
+		playSound('sound/haha-1.mp3', 0.1, muted);
 		setTimeout(() => {
 			hole.classList.remove('up');
 			peep();
@@ -90,7 +90,7 @@ function whack(e) {
 	scoreBoard.textContent = score;
 
 	// Play the sound
-	playSound('sound/boom-1.mp3', 0.2, muted);
+	playSound('sound/boom-1.mp3', 0.4, muted);
 
 	// Show the boom effect
 	boom.style.display = 'block';
