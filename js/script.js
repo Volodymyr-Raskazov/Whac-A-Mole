@@ -7,11 +7,13 @@ const boom = document.querySelector('.boom');
 let lastHole;
 let timeUp = false;
 let score = 0;
+let muted = true;
 let duration = 20000;
 
-const playSound = (soundFile, volume) => {
+const playSound = (soundFile, volume, muted) => {
 	const sound = new Audio(soundFile);
 	sound.volume = volume;
+	sound.muted = muted;
 	sound.play();
 }
 
@@ -33,6 +35,7 @@ const peep = () => {
 		const time = randomTime(300, 900);
 		const hole = randomHole(holes);
 		hole.classList.add('up');
+		playSound('sound/haha-1.mp3', 0.2, muted);
 		setTimeout(() => {
 			hole.classList.remove('up');
 			peep();
@@ -42,19 +45,19 @@ const peep = () => {
 
 const countdown = () => {
 	let time = duration / 1000;
-	startBtn.textContent = `${time}s left`;
+	startBtn.textContent = time + countdownText;
 	const timerId = setInterval(() => {
 		time--;
-		startBtn.textContent = `${time}s left`;
+		startBtn.textContent = time + countdownText;
 		if (time === 0) {
-			startBtn.textContent = `Start!`;
+			startBtn.textContent = btnText;
 			clearInterval(timerId);
 		}
 	}, 1000);
 }
 
 const startGame = () => {
-	resetScoreboard();
+	resetScoreBoard();
 	setTimeUpFlag();
 	setScoreToZero();
 	peep();
@@ -62,7 +65,7 @@ const startGame = () => {
 	setTimeoutForGameEnd();
 }
 
-const resetScoreboard = () => {
+const resetScoreBoard = () => {
 	scoreBoard.textContent = 0;
 }
 const setTimeUpFlag = () => {
@@ -72,8 +75,10 @@ const setScoreToZero = () => {
 	score = 0;
 }
 const setTimeoutForGameEnd = () => {
+	document.querySelector('.start button').disabled = true;
 	setTimeout(() => {
 		timeUp = true;
+		document.querySelector('.start button').disabled = false;
 	}, duration);
 }
 
@@ -85,7 +90,7 @@ function whack(e) {
 	scoreBoard.textContent = score;
 
 	// Play the sound
-	playSound('sound/boom.mp3', 0.2);
+	playSound('sound/boom-1.mp3', 0.2, muted);
 
 	// Show the boom effect
 	boom.style.display = 'block';

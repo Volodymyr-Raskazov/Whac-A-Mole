@@ -6,7 +6,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
-	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light:regular" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 	<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800&display=swap" rel="stylesheet" /> -->
 	<!--&display=swap&subset=cyrillic-ext-->
 	<title>Whack-a-mole!</title>
@@ -21,6 +24,7 @@
 			<div class="title">
 				<h1>Whack-a-mole!</h1>
 				<div>your score: <span class="score">0</span></div>
+				<button id="options"></button>
 			</div>
 			<div class="start">
 				<button onClick="startGame()">Start!</button>
@@ -63,10 +67,25 @@
 					<div class="mole"></div>
 				</div>
 			</div>
+
+			<div class="options-window">
+				<h2>Options</h2>
+				<div class="lang">
+					<h3>Select language:</h3>
+					<button id="us" class="active"></button>
+					<button id="ua"></button>
+				</div>
+				<div class="sound">
+					<h3>Sound on/off:</h3>
+					<button id="on" class="active"></button>
+					<button id="off"></button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script src="js/script.js"></script>
 	<script src="js/cursor.js"></script>
+	<script src="js/options.js"></script>
 </body>
 
 </html>
