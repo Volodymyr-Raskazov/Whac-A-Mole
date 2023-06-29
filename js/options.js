@@ -24,7 +24,7 @@ usLangSw.addEventListener('click', () => {
 	btnText = 'Start!';
 	document.querySelector('body').style.fontFamily = '"Shadows Into Light", cursive';
 	document.querySelector('.title h1').textContent = 'Whack-a-mole!';
-	document.querySelector('.title div').innerHTML = 'your score: <span class="score">0</span>';
+	document.querySelector('.title div').textContent = 'your score: ';
 	document.querySelector('.start button').textContent = 'Start!';
 	document.querySelector('.start button').style.padding = '0 15px';
 	document.querySelector('.options-window h2').textContent = 'Options';
@@ -39,7 +39,7 @@ uaLangSw.addEventListener('click', () => {
 	btnText = 'Вперед!';
 	document.querySelector('body').style.fontFamily = 'Caveat, cursive';
 	document.querySelector('.title h1').textContent = 'Бий крота!';
-	document.querySelector('.title div').innerHTML = 'твій рахунок: <span class="score">0</span>';
+	document.querySelector('.title div').textContent = 'твій рахунок: ';
 	document.querySelector('.start button').textContent = 'Вперед!';
 	document.querySelector('.start button').style.padding = '8px 15px';
 	document.querySelector('.options-window h2').textContent = 'Параметри';
