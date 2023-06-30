@@ -31,8 +31,8 @@ usLangSw.addEventListener('click', () => {
 	document.querySelector('.lang h3').textContent = 'Select language:';
 	document.querySelector('.sound h3').textContent = 'Sound on/off:';
 	document.querySelector('.level h2').textContent = 'Difficulty level';
-	document.querySelector('#easy').textContent = 'Easy';
-	document.querySelector('#hard').textContent = 'Hard';
+	document.querySelector('#easy').innerHTML = 'Easy<span class="active-txt"></span>';
+	document.querySelector('#hard').innerHTML = 'Hard<span class="active-txt"></span>';
 });
 
 uaLangSw.addEventListener('click', () => {
@@ -49,8 +49,8 @@ uaLangSw.addEventListener('click', () => {
 	document.querySelector('.lang h3').textContent = 'Обери мову:';
 	document.querySelector('.sound h3').textContent = 'Звук увім./вим.:';
 	document.querySelector('.level h2').textContent = 'Рівень складності';
-	document.querySelector('#easy').textContent = 'Легко';
-	document.querySelector('#hard').textContent = 'Складно';
+	document.querySelector('#easy').innerHTML = 'Легко<span class="active-txt"></span>';
+	document.querySelector('#hard').innerHTML = 'Складно<span class="active-txt"></span>';
 });
 
 soundOnSw.addEventListener('click', () => {
