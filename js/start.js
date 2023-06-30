@@ -1,7 +1,7 @@
 'use strict'
 
 const createHolesEasy = () => {
-	gameBoard.innerHTML = '';
+	game.innerHTML = '';
 	let flex = '1 0 33%';
 	let size = '37%';
 	let n = 9;
@@ -17,7 +17,7 @@ const createHolesEasy = () => {
 		let addHole = document.createElement('div');
 		addHole.className = `hole hole${i}`;
 		addHole.innerHTML = `<div class="mole"></div>`;
-		gameBoard.appendChild(addHole);
+		game.appendChild(addHole);
 	}
 	holes = document.querySelectorAll('.hole');
 	holes.forEach((el) => {
@@ -31,7 +31,7 @@ const createHolesEasy = () => {
 }
 
 const createHolesHard = () => {
-	gameBoard.innerHTML = '';
+	game.innerHTML = '';
 	let flex = '1 0 25%';
 	let size = '50%';
 	if (screen.offsetWidth <= 768 && screen.offsetWidth > 425) {
@@ -44,7 +44,7 @@ const createHolesHard = () => {
 		let addHole = document.createElement('div');
 		addHole.className = `hole hole-${i}`;
 		addHole.innerHTML = `<div class="mole"></div>`;
-		gameBoard.appendChild(addHole);
+		game.appendChild(addHole);
 	}
 	holes = document.querySelectorAll('.hole');
 	holes.forEach((el) => {

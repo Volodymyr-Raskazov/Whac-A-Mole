@@ -109,7 +109,7 @@ body {
 	pointer-events: none;
 	// transition: 0, 1s;
 	transform: translate(-50%, -50%);
-	z-index: 999;
+	z-index: 5;
 	background-image: url(../img/humm.png);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -202,7 +202,7 @@ body {
 	border-radius: 10px;
 	margin: 0 auto;
 	background-image: url(../img/background.jpg);
-	cursor: none;
+	// cursor: none;
 	@media (max-width: 768px) {
 		gap: 5px;
 	}
