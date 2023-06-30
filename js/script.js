@@ -1,14 +1,14 @@
 'use strict'
-const holes = document.querySelectorAll('.hole');
-const scoreBoard = document.getElementById('score');
-const moles = document.querySelectorAll('.mole');
-const boom = document.querySelector('.boom');
+let holes = document.querySelectorAll('.hole');
+let scoreBoard = document.getElementById('score');
+let moles = document.querySelectorAll('.mole');
+let boom = document.querySelector('.boom');
 
 let lastHole;
 let timeUp = false;
 let score = 0;
 let muted = false;
-let duration = 20000;
+let duration = 10000;
 
 const playSound = (soundFile, volume, muted) => {
 	const sound = new Audio(soundFile);
@@ -103,5 +103,3 @@ function whack(e) {
 		this.parentNode.classList.remove('up');
 	}, 100);
 }
-
-moles.forEach(mole => mole.addEventListener('click', whack));

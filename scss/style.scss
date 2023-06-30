@@ -41,14 +41,15 @@ body {
 	position: relative;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 15px;
+	padding: 0 15px;
 }
 
 // Header =====================================================================
 
 // Main =======================================================================
 .hole {
-	flex: 1 0 25%;
+	// flex: 1 0 25%;
+	flex: 1 0 33%;
 	overflow: hidden;
 	position: relative;
 	@media (max-width: 425px) {
@@ -76,6 +77,9 @@ body {
 	&.up .mole {
 		top: 0;
 	}
+	@media (max-width: 768px) {
+		flex: 1 0 30%;
+	}
 	@media (max-width: 425px) {
 		flex: 1 0 48%;
 	}
@@ -83,7 +87,7 @@ body {
 
 .mole {
 	background: url(../img/mole-2.png) bottom center no-repeat;
-	background-size: 50%;
+	background-size: 35%;
 	position: absolute;
 	top: 100%;
 	width: 100%;
@@ -149,11 +153,15 @@ body {
 }
 
 .title {
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	font-size: 3rem;
+	height: 5rem;
+	background-color: #262c37;
 	margin-bottom: 1rem;
+	z-index: 50;
 	h1 {
 		flex: 1 1 auto;
 		color: rgb(104, 94, 114);
@@ -175,6 +183,7 @@ body {
 	}
 	@media (max-width: 425px) {
 		font-size: 2rem;
+		line-height: 2.1rem;
 		margin-bottom: 1rem;
 	}
 }
@@ -227,26 +236,46 @@ body {
 	position: absolute;
 	width: 24rem;
 	right: 1.5rem;
-	top: 5rem;
+	top: -100%;
 	color: #262c37;
 	background-color: #f5f5f5;
 	border: #262c37 8px double;
 	border-radius: 1rem;
 	padding: 1.5rem;
+	transition: all 0.4s ease;
 	z-index: 5;
-	display: none;
+	&.active {
+		top: 5rem;
+	}
 	> div {
 		font-size: 2rem;
 		button {
+			position: relative;
 			flex: 0 0 auto;
-			height: 2rem;
-			width: 2rem;
-			border-radius: 6px;
-			background-repeat: no-repeat;
-			background-size: 80%;
-			background-position: center;
-			&.active {
-				background-color: #0059ff2e;
+			overflow: hidden;
+			.active-btn {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: 1rem;
+				height: 1rem;
+				background-image: url(../img/check.png);
+				background-repeat: no-repeat;
+				// background-position: 100% 100%;
+				background-size: 100%;
+				display: none;
+			}
+			&.active .active-btn {
+				display: block;
+			}
+			img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				object-fit: cover;
+				z-index: -1;
 			}
 		}
 	}
@@ -256,10 +285,8 @@ body {
 		margin-bottom: 1.5rem;
 	}
 	@media (max-width: 768px) {
-		top: 4.5rem;
 	}
 	@media (max-width: 425px) {
-		top: 3.5rem;
 		right: 1rem;
 	}
 }
@@ -272,38 +299,55 @@ body {
 	h3 {
 		flex: 1 1 auto;
 	}
-	#us {
-		background-image: url(../img/svg/us.svg);
-		margin-right: 0.5rem;
+	button {
+		height: 2rem;
+		width: 2rem;
+		border-radius: 6px;
 	}
-	#ua {
-		background-image: url(../img/svg/ua.svg);
+	#us {
+		margin-right: 0.5rem;
 	}
 }
 .sound {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 1.5rem;
+	margin-bottom: 2.5rem;
 	h3 {
 		flex: 1 1 auto;
 	}
-	// button {
-	// 	flex: 0 0 auto;
-	// 	height: 2rem;
-	// 	width: 2rem;
-	// 	border-radius: 6px;
-	// 	// background-color: #7891be;
-	// 	background-repeat: no-repeat;
-	// 	background-size: 80%;
-	// 	background-position: center;
-	// }
+	button {
+		height: 2rem;
+		width: 2rem;
+		border-radius: 6px;
+	}
 	#on {
-		background-image: url(../img/sound.png);
 		margin-right: 0.5rem;
 	}
-	#off {
-		background-image: url(../img/mute.png);
+}
+.level {
+	text-align: center;
+	button {
+		&:not(:last-child) {
+			margin-right: 2rem;
+		}
+		position: relative;
+		padding-left: 2rem;
+		.active-txt {
+			position: absolute;
+			left: 0;
+			top: 25%;
+			width: 2rem;
+			height: 2rem;
+			background-image: url(../img/check.png);
+			background-repeat: no-repeat;
+			// background-position: 100% 100%;
+			background-size: contain;
+			display: none;
+		}
+		&.active .active-txt {
+			display: block;
+		}
 	}
 }
 // ============================================================================

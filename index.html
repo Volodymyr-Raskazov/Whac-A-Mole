@@ -31,7 +31,7 @@
 				<button onClick="startGame()">Start!</button>
 			</div>
 			<div class="game">
-				<div class="hole hole1">
+				<!-- <div class="hole hole1">
 					<div class="mole"></div>
 				</div>
 				<div class="hole hole2">
@@ -57,8 +57,8 @@
 				</div>
 				<div class="hole hole9">
 					<div class="mole"></div>
-				</div>
-				<div class="hole hole10">
+				</div> -->
+				<!-- <div class="hole hole10">
 					<div class="mole"></div>
 				</div>
 				<div class="hole hole11">
@@ -66,27 +66,49 @@
 				</div>
 				<div class="hole hole12">
 					<div class="mole"></div>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="options-window">
 				<h2>Options</h2>
 				<div class="lang">
 					<h3>Select language:</h3>
-					<button id="us" class="active"></button>
-					<button id="ua"></button>
+					<button id="us" class="active">
+						<img src="img/svg/us.svg" alt="">
+						<span class="active-btn"></span>
+					</button>
+					<button id="ua">
+						<img src="img/svg/ua.svg" alt="">
+						<span class="active-btn"></span>
+					</button>
 				</div>
 				<div class="sound">
 					<h3>Sound on/off:</h3>
-					<button id="on" class="active"></button>
-					<button id="off"></button>
+					<button id="on" class="active">
+						<img src="img/sound.png" alt="">
+						<span class="active-btn"></span>
+					</button>
+					<button id="off">
+						<img src="img/mute.png" alt="">
+						<span class="active-btn"></span>
+					</button>
+				</div>
+				<div class="level">
+					<h2>Difficulty level</h2>
+					<button id="easy" class="active">easy
+						<span class="active-txt"></span>
+					</button>
+					<button id="hard">hard
+						<span class="active-txt"></span>
+					</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="js/script.js"></script>
 	<script src="js/cursor.js"></script>
 	<script src="js/options.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/start.js"></script>
 </body>
 
 </html>

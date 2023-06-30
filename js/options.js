@@ -4,17 +4,17 @@ let usLangSw = document.getElementById('us');
 let uaLangSw = document.getElementById('ua');
 let soundOnSw = document.getElementById('on');
 let soundOffSw = document.getElementById('off');
+let levelEasy = document.getElementById('easy');
+let levelHard = document.getElementById('hard');
+let gameBoard = document.querySelector('.game');
+let screen = document.querySelector('.wrapper');
 
 let countdownText = 's left!';
 let btnText = 'Start!';
 
 options.addEventListener('click', () => {
 	let optionsWindow = document.querySelector('.options-window');
-	if (optionsWindow.offsetTop === 0) {
-		optionsWindow.style.display = 'block';
-	} else {
-		optionsWindow.style.display = 'none';
-	}
+	optionsWindow.classList.toggle('active');
 });
 
 usLangSw.addEventListener('click', () => {
@@ -30,6 +30,9 @@ usLangSw.addEventListener('click', () => {
 	document.querySelector('.options-window h2').textContent = 'Options';
 	document.querySelector('.lang h3').textContent = 'Select language:';
 	document.querySelector('.sound h3').textContent = 'Sound on/off:';
+	document.querySelector('.level h2').textContent = 'Difficulty level';
+	document.querySelector('#easy').textContent = 'Easy';
+	document.querySelector('#hard').textContent = 'Hard';
 });
 
 uaLangSw.addEventListener('click', () => {
@@ -45,6 +48,9 @@ uaLangSw.addEventListener('click', () => {
 	document.querySelector('.options-window h2').textContent = 'Параметри';
 	document.querySelector('.lang h3').textContent = 'Обери мову:';
 	document.querySelector('.sound h3').textContent = 'Звук увім./вим.:';
+	document.querySelector('.level h2').textContent = 'Рівень складності';
+	document.querySelector('#easy').textContent = 'Легко';
+	document.querySelector('#hard').textContent = 'Складно';
 });
 
 soundOnSw.addEventListener('click', () => {
@@ -57,4 +63,16 @@ soundOffSw.addEventListener('click', () => {
 	soundOnSw.classList.remove('active');
 	soundOffSw.classList.add('active');
 	muted = true;
+});
+
+levelEasy.addEventListener('click', () => {
+	levelHard.classList.remove('active');
+	levelEasy.classList.add('active');
+	createHolesEasy();
+});
+
+levelHard.addEventListener('click', () => {
+	levelHard.classList.add('active');
+	levelEasy.classList.remove('active');
+	createHolesHard();
 });
