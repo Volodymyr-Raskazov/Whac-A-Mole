@@ -43,13 +43,6 @@ const peep = () => {
 
 const countdown = (duration) => {
 	let time = duration / 1000;
-	let lastTime = time;
-	console.dir(time);
-	console.dir(lastTime);
-	if (lastTime < time) {
-		clearInterval(timerId);
-		timerId();
-	};
 	const timerId = setInterval(() => {
 		startBtn.textContent = time + countdownText;
 		time--;
