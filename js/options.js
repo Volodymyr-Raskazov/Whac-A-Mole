@@ -1,19 +1,15 @@
 'use strict'
-let options = document.getElementById('options');
-let usLangSw = document.getElementById('us');
-let uaLangSw = document.getElementById('ua');
-let soundOnSw = document.getElementById('on');
-let soundOffSw = document.getElementById('off');
-let levelEasy = document.getElementById('easy');
-let levelHard = document.getElementById('hard');
-// let gameBoard = document.querySelector('.game');
-let screen = document.querySelector('.wrapper');
+const options = document.getElementById('options');
+const usLangSw = document.getElementById('us');
+const uaLangSw = document.getElementById('ua');
+const soundOnSw = document.getElementById('on');
+const soundOffSw = document.getElementById('off');
 
 let countdownText = 's left!';
 let btnText = 'Start!';
 
 options.addEventListener('click', () => {
-	let optionsWindow = document.querySelector('.options-window');
+	const optionsWindow = document.querySelector('.options-window');
 	optionsWindow.classList.toggle('active');
 });
 
