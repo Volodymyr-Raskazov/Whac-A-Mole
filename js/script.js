@@ -103,3 +103,5 @@ function whack(e) {
 		this.parentNode.classList.remove('up');
 	}, 100);
 }
+
+moles.forEach(mole => mole.addEventListener('click', whack));

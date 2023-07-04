@@ -30,9 +30,6 @@ usLangSw.addEventListener('click', () => {
 	document.querySelector('.options-window h2').textContent = 'Options';
 	document.querySelector('.lang h3').textContent = 'Select language:';
 	document.querySelector('.sound h3').textContent = 'Sound on/off:';
-	document.querySelector('.level h2').textContent = 'Difficulty level';
-	document.querySelector('#easy').innerHTML = 'Easy<span class="active-txt"></span>';
-	document.querySelector('#hard').innerHTML = 'Hard<span class="active-txt"></span>';
 });
 
 uaLangSw.addEventListener('click', () => {
@@ -48,9 +45,6 @@ uaLangSw.addEventListener('click', () => {
 	document.querySelector('.options-window h2').textContent = 'Параметри';
 	document.querySelector('.lang h3').textContent = 'Обери мову:';
 	document.querySelector('.sound h3').textContent = 'Звук увім./вим.:';
-	document.querySelector('.level h2').textContent = 'Рівень складності';
-	document.querySelector('#easy').innerHTML = 'Легко<span class="active-txt"></span>';
-	document.querySelector('#hard').innerHTML = 'Складно<span class="active-txt"></span>';
 });
 
 soundOnSw.addEventListener('click', () => {
@@ -63,16 +57,4 @@ soundOffSw.addEventListener('click', () => {
 	soundOnSw.classList.remove('active');
 	soundOffSw.classList.add('active');
 	muted = true;
-});
-
-levelEasy.addEventListener('click', () => {
-	levelHard.classList.remove('active');
-	levelEasy.classList.add('active');
-	createHolesEasy();
-});
-
-levelHard.addEventListener('click', () => {
-	levelHard.classList.add('active');
-	levelEasy.classList.remove('active');
-	createHolesHard();
 });
