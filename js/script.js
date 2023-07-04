@@ -78,15 +78,12 @@ const increaseDuration = () => {
 	setTimeoutForGameEnd(duration);
 }
 const setTimeoutForGameEnd = (duration) => {
-	timeUp = true;
-	setTimeUpFlag();
-	// peep();
-	countdown(duration);
 	document.querySelector('.start button').disabled = true;
 	setTimeout(() => {
 		timeUp = true;
 		document.querySelector('.start button').disabled = false;
 	}, duration);
+	countdown(duration);
 }
 
 function whack(e) {

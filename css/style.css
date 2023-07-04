@@ -193,6 +193,16 @@ body {
   background-size: 50%;
 }
 @media (max-width: 768px) {
+  .mole.bonus {
+    background-size: 42%;
+  }
+}
+@media (max-width: 425px) {
+  .mole.bonus {
+    background-size: 40%;
+  }
+}
+@media (max-width: 768px) {
   .mole {
     background-size: 45%;
   }

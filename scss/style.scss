@@ -96,6 +96,12 @@ body {
 	&.bonus {
 		background: url(../img/clock.png) bottom center no-repeat;
 		background-size: 50%;
+		@media (max-width: 768px) {
+			background-size: 42%;
+		}
+		@media (max-width: 425px) {
+			background-size: 40%;
+		}
 	}
 	@media (max-width: 768px) {
 		background-size: 45%;
