@@ -93,6 +93,10 @@ body {
 	width: 100%;
 	height: 100%;
 	transition: all 0.4s ease;
+	&.bonus {
+		background: url(../img/clock.png) bottom center no-repeat;
+		background-size: 50%;
+	}
 	@media (max-width: 768px) {
 		background-size: 45%;
 	}

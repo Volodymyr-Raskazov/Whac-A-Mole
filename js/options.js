@@ -1,12 +1,4 @@
 'use strict'
-const options = document.getElementById('options');
-const usLangSw = document.getElementById('us');
-const uaLangSw = document.getElementById('ua');
-const soundOnSw = document.getElementById('on');
-const soundOffSw = document.getElementById('off');
-
-let countdownText = 's left!';
-let btnText = 'Start!';
 
 options.addEventListener('click', () => {
 	const optionsWindow = document.querySelector('.options-window');

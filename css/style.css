@@ -188,6 +188,10 @@ body {
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
+.mole.bonus {
+  background: url(../img/clock.png) bottom center no-repeat;
+  background-size: 50%;
+}
 @media (max-width: 768px) {
   .mole {
     background-size: 45%;
