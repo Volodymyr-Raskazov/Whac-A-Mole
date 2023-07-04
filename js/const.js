@@ -18,5 +18,6 @@ let timeUp = false;
 let score = 0;
 let muted = false;
 let duration = 20000;
+let timeOut = duration / 1000;
 let countdownText = 's left!';
 let btnText = 'Start!';

@@ -78,6 +78,14 @@ const increaseDuration = (duration) => {
 }
 const setTimeoutForGameEnd = (duration) => {
 	document.querySelector('.start button').disabled = true;
+	// const timerId = setInterval(() => {
+	// 	startBtn.textContent = timeOut + countdownText;
+	// 	timeOut--;
+	// 	if (timeOut === 0) {
+	// 		startBtn.textContent = btnText;
+	// 		clearInterval(timerId);
+	// 	}
+	// }, 1000);
 	setTimeout(() => {
 		timeUp = true;
 		document.querySelector('.start button').disabled = false;
@@ -90,8 +98,8 @@ function whack(e) {
 
 	if (this.classList.contains('bonus')) {
 		this.classList.remove('bonus');
-		increaseDuration(duration);
 		randomMoleSwitchToBonus();
+		increaseDuration(timeOut * 1000);
 	} else {
 		// Update the score
 		score++;
