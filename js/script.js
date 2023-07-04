@@ -43,10 +43,16 @@ const peep = () => {
 
 const countdown = (duration) => {
 	let time = duration / 1000;
-	startBtn.textContent = time + countdownText;
+	let lastTime = time;
+	console.dir(time);
+	console.dir(lastTime);
+	if (lastTime < time) {
+		clearInterval(timerId);
+		timerId();
+	};
 	const timerId = setInterval(() => {
-		time--;
 		startBtn.textContent = time + countdownText;
+		time--;
 		if (time === 0) {
 			startBtn.textContent = btnText;
 			clearInterval(timerId);
@@ -73,7 +79,7 @@ const setTimeUpFlag = () => {
 const setScoreToZero = () => {
 	score = 0;
 }
-const increaseDuration = () => {
+const increaseDuration = (duration) => {
 	duration += 5000; // Додати 5000 мілісекунд (5 секунд)
 	setTimeoutForGameEnd(duration);
 }
@@ -90,8 +96,8 @@ function whack(e) {
 	if (!e.isTrusted) return;
 
 	if (this.classList.contains('bonus')) {
-		increaseDuration();
 		this.classList.remove('bonus');
+		increaseDuration(duration);
 		randomMoleSwitchToBonus();
 	} else {
 		// Update the score
