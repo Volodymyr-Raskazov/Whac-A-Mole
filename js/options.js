@@ -6,7 +6,7 @@ let soundOnSw = document.getElementById('on');
 let soundOffSw = document.getElementById('off');
 let levelEasy = document.getElementById('easy');
 let levelHard = document.getElementById('hard');
-let gameBoard = document.querySelector('.game');
+// let gameBoard = document.querySelector('.game');
 let screen = document.querySelector('.wrapper');
 
 let countdownText = 's left!';

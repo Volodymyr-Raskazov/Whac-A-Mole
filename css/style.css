@@ -211,7 +211,7 @@ body {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  z-index: 999;
+  z-index: 5;
   background-image: url(../img/humm.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -334,7 +334,6 @@ body {
   border-radius: 10px;
   margin: 0 auto;
   background-image: url(../img/background.jpg);
-  cursor: none;
 }
 @media (max-width: 768px) {
   .game {

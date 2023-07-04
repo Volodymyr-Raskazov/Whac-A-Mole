@@ -1,6 +1,6 @@
 'use strict';
 const game = document.querySelector('.game');
-const cursor = document.querySelector(".cursor");
+const cursor = document.querySelector('.cursor');
 const startBtn = document.querySelector('.start button');
 // const holes = document.querySelectorAll('.hole');
 
