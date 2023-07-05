@@ -30,7 +30,7 @@ const randomMoleSwitchToBonus = () => {
 
 const peep = () => {
 	if (!timeUp) {
-		const time = randomTime(1000, 1000);
+		const time = randomTime(300, 900);
 		const hole = randomHole(holes);
 		hole.classList.add('up');
 		playSound('sound/haha-1.mp3', 0.1, muted);
@@ -39,18 +39,6 @@ const peep = () => {
 			peep();
 		}, time);
 	}
-}
-
-const countdown = (duration) => {
-	let time = duration / 1000;
-	const timerId = setInterval(() => {
-		startBtn.textContent = time + countdownText;
-		time--;
-		if (time === 0) {
-			startBtn.textContent = btnText;
-			clearInterval(timerId);
-		}
-	}, 1000);
 }
 
 const startGame = () => {
@@ -73,24 +61,27 @@ const setScoreToZero = () => {
 	score = 0;
 }
 const increaseDuration = (duration) => {
+	clearInterval(intervalId);
+	clearTimeout(timeoutId);
 	duration += 5000; // Додати 5000 мілісекунд (5 секунд)
 	setTimeoutForGameEnd(duration);
 }
 const setTimeoutForGameEnd = (duration) => {
 	document.querySelector('.start button').disabled = true;
-	// const timerId = setInterval(() => {
-	// 	startBtn.textContent = timeOut + countdownText;
-	// 	timeOut--;
-	// 	if (timeOut === 0) {
-	// 		startBtn.textContent = btnText;
-	// 		clearInterval(timerId);
-	// 	}
-	// }, 1000);
-	setTimeout(() => {
+	timeLeft = duration / 1000;
+	intervalId = setInterval(() => {
+		startBtn.textContent = timeLeft + countdownText;
+		timeLeft--;
+		if (timeLeft === 0) {
+			startBtn.textContent = btnText;
+			clearInterval(intervalId);
+		}
+	}, 1000);
+	timeoutId = setTimeout(() => {
 		timeUp = true;
 		document.querySelector('.start button').disabled = false;
 	}, duration);
-	countdown(duration);
+	// countdown(duration);
 }
 
 function whack(e) {
@@ -99,7 +90,7 @@ function whack(e) {
 	if (this.classList.contains('bonus')) {
 		this.classList.remove('bonus');
 		randomMoleSwitchToBonus();
-		increaseDuration(timeOut * 1000);
+		increaseDuration(timeLeft * 1000);
 	} else {
 		// Update the score
 		score++;
