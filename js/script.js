@@ -33,7 +33,12 @@ const peep = () => {
 		const time = randomTime(300, 900);
 		const hole = randomHole(holes);
 		hole.classList.add('up');
-		playSound('sound/haha-1.mp3', 0.1, muted);
+		if (hole.lastElementChild.classList.contains('bonus')) {
+			playSound('sound/tik-tak.mp3', 0.2, muted);
+		} else {
+			playSound('sound/haha-1.mp3', 0.1, muted);
+		}
+
 		setTimeout(() => {
 			hole.classList.remove('up');
 			peep();
@@ -42,30 +47,37 @@ const peep = () => {
 }
 
 const startGame = () => {
-	resetScoreBoard();
-	setScoreToZero();
-	setTimeUpFlag();
+	resetGame();
 	peep();
 	setTimeoutForGameEnd(duration);
-	// countdown(duration);
 	randomMoleSwitchToBonus();
+}
+
+const resetGame = () => {
+	resetScoreBoard();
+	setTimeUpFlag();
+	setScoreToZero();
 }
 
 const resetScoreBoard = () => {
 	scoreBoard.textContent = 0;
 }
+
 const setTimeUpFlag = () => {
 	timeUp = false;
 }
+
 const setScoreToZero = () => {
 	score = 0;
 }
+
 const increaseDuration = (duration) => {
 	clearInterval(intervalId);
 	clearTimeout(timeoutId);
 	duration += 5000; // Додати 5000 мілісекунд (5 секунд)
 	setTimeoutForGameEnd(duration);
 }
+
 const setTimeoutForGameEnd = (duration) => {
 	document.querySelector('.start button').disabled = true;
 	timeLeft = duration / 1000;
@@ -81,31 +93,28 @@ const setTimeoutForGameEnd = (duration) => {
 		timeUp = true;
 		document.querySelector('.start button').disabled = false;
 	}, duration);
-	// countdown(duration);
 }
 
 function whack(e) {
 	if (!e.isTrusted) return;
 
 	if (this.classList.contains('bonus')) {
+		playSound('sound/bonus.mp3', 0.6, muted);
+		boom.style.backgroundImage = 'url(img/wow.png)';
 		this.classList.remove('bonus');
 		randomMoleSwitchToBonus();
 		increaseDuration(timeLeft * 1000);
 	} else {
-		// Update the score
+		playSound('sound/boom-1.mp3', 0.4, muted);
+		boom.style.backgroundImage = 'url(img/boom-1.png)';
 		score++;
 		scoreBoard.textContent = score;
 	}
-	// Play the sound
-	playSound('sound/boom-1.mp3', 0.4, muted);
-	this.parentNode.classList.remove('up');
-
-	// Show the boom effect
 	boom.style.display = 'block';
 	boom.style.top = this.offsetParent.offsetTop + 'px';
 	boom.style.left = this.offsetParent.offsetLeft + 'px';
+	this.parentNode.classList.remove('up');
 
-	// Hide the boom effect after 100ms
 	setTimeout(() => {
 		boom.style.display = 'none';
 	}, 200);

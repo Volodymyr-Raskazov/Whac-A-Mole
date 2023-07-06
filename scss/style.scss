@@ -113,8 +113,8 @@ body {
 // ============================================================================
 .cursor {
 	position: absolute;
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 130px;
 	user-select: none;
 	pointer-events: none;
 	// transition: 0, 1s;
@@ -126,7 +126,7 @@ body {
 	background-size: contain;
 	display: none;
 	&.animate {
-		animation: hammer 0.2s linear;
+		animation: hammer 0.1s linear;
 	}
 }
 
@@ -148,10 +148,10 @@ body {
 
 .boom {
 	position: absolute;
-	width: 100px;
-	height: 77px;
+	width: 120px;
+	height: 100px;
 	z-index: 999;
-	background-image: url(../img/boom.png);
+	// background-image: url(../img/boom.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;

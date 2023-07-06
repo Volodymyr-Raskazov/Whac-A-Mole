@@ -2,7 +2,6 @@
 const game = document.querySelector('.game');
 const cursor = document.querySelector('.cursor');
 const startBtn = document.querySelector('.start button');
-// const holes = document.querySelectorAll('.hole');
 const options = document.getElementById('options');
 const usLangSw = document.getElementById('us');
 const uaLangSw = document.getElementById('ua');
